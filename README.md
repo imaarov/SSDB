@@ -1,0 +1,2 @@
+# SSDB
+Simple simple DB
