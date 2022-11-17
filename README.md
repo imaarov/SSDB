@@ -1,6 +1,6 @@
 # SSDB
 ### Simple simple DB
-## phase 1
+## Phase 1
 supports list
 - two operation (insert / select)
 - store only in memory (no persistence to disk)
@@ -34,3 +34,7 @@ Executed.
 ssdb > insert foo bar 1
 Syntax error. Could not parse statement.
 ssdb > .exit
+```
+
+### Reference
+Until phase 1 i complete the db with [this](https://cstack.github.io/db_tutorial/) great tutorial
