@@ -7,7 +7,7 @@ supports list
 - support single hard-code table 
 ## Table
 
-For first phase the table structure are hard-code and its single one.
+For first phase the table structure is hard-code and its single one.
 
 | Column | Type |
 | ------ | ------ |
