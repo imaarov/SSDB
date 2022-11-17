@@ -12,7 +12,11 @@ int main()
 		print_prompt();
 		read_input(input_buffer);
 
-		if(strcmp(input_buffer->buffer, ".exit") == 0) {
+		if(
+			strcmp(input_buffer->buffer, ".exit") == 0 || 
+			strcmp(input_buffer->buffer, "exit")  == 0 ||
+			strcmp(input_buffer->buffer, "q")     == 0
+			) {
 			close_input_buffer(input_buffer);
 			return 0;
 		} else {
