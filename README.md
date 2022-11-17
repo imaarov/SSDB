@@ -36,5 +36,16 @@ Syntax error. Could not parse statement.
 ssdb > .exit
 ```
 
+## TDD of DB
+for making test i use RSpec you can test it with following command
+
+```plaintext
+$ bundle config set --local path '.bundle'
+$ bundle install
+$ bundle exec rspec
+```
+
+
+
 ### Reference
 Until phase 1 i complete the db with [this](https://cstack.github.io/db_tutorial/) great tutorial
