@@ -23,14 +23,14 @@ For first phase the table structure are hard-code and its single one.
 
 
 ```
-db > insert 1 cstack foo@bar.com
+ssdb > insert 1 cstack foo@bar.com
 Executed.
-db > insert 2 bob bob@example.com
+ssdb > insert 2 bob bob@example.com
 Executed.
-db > select
+ssdb > select
 (1, cstack, foo@bar.com)
 (2, bob, bob@example.com)
 Executed.
-db > insert foo bar 1
+ssdb > insert foo bar 1
 Syntax error. Could not parse statement.
-db > .exit
+ssdb > .exit
