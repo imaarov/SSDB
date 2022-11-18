@@ -18,7 +18,7 @@ OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 $(ODIR)/%.o: %.c $(DEPS)
 	$(CC) -c -o $(OUT)$@ $< $(CFLAGS)
 
-ssdba11: $(OBJ)
+ssdb: $(OBJ)
 	$(CC) -o $(OUT)$@ $^ $(CFLAGS) $(LIBS)
 
 .PHONY: clean

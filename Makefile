@@ -6,4 +6,4 @@ DEPS = src/command.h src/header.h src/table_structure.h
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 ssdb: src/main.o 
-	$(CC) -o out/bin/Ssdb src/main.o 
+	$(CC) -o out/bin/SSDB src/main.o 
