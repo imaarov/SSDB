@@ -27,5 +27,60 @@ describe 'database' do
         "ssdb > ",
       ])
     end
-  end
   
+    it 'prints error message when table is full' do
+      script = (1..1401).map do |i|
+        "insert #{i} user#{i} person#{i}@example.com"
+      end
+      script << "!exit"
+      result = run_script(script)
+      expect(result[-2]).to eq('ssdb > Error: Table full.')
+    end
+  
+    it 'allows inserting strings that are the maximum length' do
+      long_username = "a"*32
+      long_email = "a"*255
+      script = [
+        "insert 1 #{long_username} #{long_email}",
+        "select",
+        "!exit",
+      ]
+      result = run_script(script)
+      expect(result).to match_array([
+        "ssdb > Executed.",
+        "ssdb > (1, #{long_username}, #{long_email})",
+        "Executed.",
+        "ssdb > ",
+      ])
+    end
+  
+    it 'prints error message if strings are too long' do
+      long_username = "a"*33
+      long_email = "a"*256
+      script = [
+        "insert 1 #{long_username} #{long_email}",
+        "select",
+        "!exit",
+      ]
+      result = run_script(script)
+      expect(result).to match_array([
+        "ssdb > String is too long.",
+        "ssdb > Executed.",
+        "ssdb > ",
+      ])
+    end
+  
+    it 'prints an error message if id is negative' do
+      script = [
+        "insert -1 cstack foo@bar.com",
+        "select",
+        "!exit",
+      ]
+     result = run_script(script)
+      expect(result).to match_array([
+        "ssdb > ID must be positive.",
+        "ssdb > Executed.",
+        "ssdb > ",
+      ])
+    end
+  end
