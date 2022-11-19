@@ -101,7 +101,7 @@ void deserialize_row(void* source, Row* destination) {
 }
 
 MetaCommandResult do_meta_command(InputBuffer* input_buffer) {
-	if(strcmp(input_buffer->buffer, "!exit") == 0) {
+	if(strcmp(input_buffer->buffer, "!exit") == 0 || strcmp(input_buffer->buffer, "!q") == 0) {
 		exit(EXIT_SUCCESS);
 	} else {
 		return META_COMMAND_UNRECOGNIZED_COMMAND;
