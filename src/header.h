@@ -1,6 +1,8 @@
 #ifndef INPUTBUFF
 #define INPUTBUFF
 
+#define DEFAULT_DB_PATH "out/db/mydb.db"
+
 // Structures
 typedef struct
 {

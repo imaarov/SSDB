@@ -15,12 +15,17 @@ int main(int argc, char* argv[])
 {
 	// Initalizing
 	InputBuffer* input_buffer = new_input_buffer();
+	Table* table;
 	if(argc < 2) {
-		printf("Must supply a database filename.\n");
-		exit(EXIT_FAILURE);
+		printf("Default db path : %s\n", DEFAULT_DB_PATH);
+		char* filename = DEFAULT_DB_PATH;
+		table = db_open(filename);
+	} else {
+		char* filename = argv[1];
+		table = db_open(filename);
 	}
-	char* filename = argv[1];
-	Table* table = db_open(filename);
+	
+	
 	while(true) {
 		print_prompt();
 		read_input(input_buffer);
