@@ -18,7 +18,7 @@ For first phase the table structure is hard-code and its single one.
 ## Set up the DB and some command sample
 
 1. Run the bin file in out/bin/SSDB by ./out/bin/SSDB mydb.db
-1. Exit the prompt with !exit
+1. Exit the prompt with !exit or !q
 1. run command (:
 
 
