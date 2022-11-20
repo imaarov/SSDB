@@ -1,7 +1,7 @@
 describe 'database' do
     def run_script(commands)
       raw_output = nil
-      IO.popen("./out/bin/SSDB", "r+") do |pipe|
+      IO.popen("./out/bin/SSDB mydb.db", "r+") do |pipe|
         commands.each do |command|
           pipe.puts command
         end
