@@ -19,8 +19,14 @@ typedef struct {
 } Row;
 
 typedef struct {
-	uint32_t num_rows;
+	int file_descriptor;
+	uint32_t file_length;
 	void* pages[TABLE_MAX_PAGES];
+} Pager;
+
+typedef struct {
+	uint32_t num_rows;
+	Pager* pager;
 } Table;
 
 const uint32_t ID_SIZE = SIZE_OF_ATTRIBUTE(Row, id);
@@ -38,8 +44,11 @@ const uint32_t TABLE_MAX_ROWS = ROWS_PER_PAGE * TABLE_MAX_PAGES;
 void serialize_row(Row* , void* );
 void deserialize_row(void* , Row* );
 void* row_slot(Table* , uint32_t );
-Table* new_table();
+Table* db_open(const char* );
 void free_table(Table* );
 void print_row(Row* );
+Pager* pager_open(const char* );
+void* get_page(Pager* , uint32_t );
+void db_close(Table* );
 
 #endif

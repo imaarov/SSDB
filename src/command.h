@@ -26,7 +26,7 @@ typedef struct {
 
 
 
-MetaCommandResult do_meta_command(InputBuffer* );
+MetaCommandResult do_meta_command(InputBuffer* ,  Table* );
 PrepareResult prepare_result(InputBuffer* input_buffer, Statement* statement);
 ExecuteResult execute_statement(Statement* , Table* );
 PrepareResult prepare_statement(InputBuffer* input_buffer, Statement* statement);
