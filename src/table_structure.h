@@ -29,6 +29,12 @@ typedef struct {
 	Pager* pager;
 } Table;
 
+typedef struct {
+	Table* table;
+	uint32_t row_num;
+	bool end_of_table;
+} Cursor;
+
 const uint32_t ID_SIZE = SIZE_OF_ATTRIBUTE(Row, id);
 const uint32_t USERNAME_SIZE = SIZE_OF_ATTRIBUTE(Row, username);
 const uint32_t EMAIL_SIZE = SIZE_OF_ATTRIBUTE(Row, email);
@@ -43,12 +49,17 @@ const uint32_t TABLE_MAX_ROWS = ROWS_PER_PAGE * TABLE_MAX_PAGES;
 
 void serialize_row(Row* , void* );
 void deserialize_row(void* , Row* );
-void* row_slot(Table* , uint32_t );
+void* cursor_value(Cursor* );
 Table* db_open(const char* );
 void free_table(Table* );
 void print_row(Row* );
 Pager* pager_open(const char* );
 void* get_page(Pager* , uint32_t );
 void db_close(Table* );
+Cursor* table_start(Table* );
+Cursor* table_end(Table* );
+void cursor_advance(Cursor* );
+
+
 
 #endif
